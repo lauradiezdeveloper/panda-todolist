@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Panda To-Do List</title>
+</head>
+<body>
+    <header></header>
+    <main>
+      <section class="features">
+
+        <!-- Añadir tarea -->
+        <section class="addTask">
+          <form id="form">
+            <label for="nombreTarea">Nombre de la tarea:</label>
+            <input type="text" id="nombreTarea" required>
+            <br>
+            <label for="prioridad">Prioridad:</label>
+              <select id="prioridad" required>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+              </select>
+            <br>
+            <button class="submit-btn" type="submit">Guardar</button>
+          </form>
+        </section>
+
+        <!-- Eliminar todas las tareas -->
+        <section class="delete-task">
+          <button id="borrarTodasBtn">Borrar todas las tareas</button>
+        </section>
+      </section>
+
+        <!-- ToDo List -->
+      <section class="todolist">
+        <div id="contenedor"></div>
+      </section>
+
+    </main>
+    <footer></footer>
+    <script src="./main.js"></script>
+</body>
+</html>

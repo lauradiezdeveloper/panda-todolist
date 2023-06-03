@@ -1,0 +1,67 @@
+html {
+    background-image: url(./assets/backgtound_image.png);
+    max-height: 15rem;
+}
+
+header {
+    height: 2rem;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(95,151,114,1) 92%, rgba(95,151,114,1) 100%);
+    opacity:0.9;
+    border-radius: 7px;
+}
+
+main{
+    display: grid;   
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+}
+
+.features {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 20px;
+    height: 50rem;
+    opacity: 0.8;
+    padding-top: 30px;
+    gap: 2rem;
+}
+
+.addTask{
+    background: #ffffff;
+    opacity: 1;
+    padding: 30px;
+}
+
+.submit-btn {
+    background-color: #283618 ;
+    border-radius: 3px;
+    height: 30px;
+    color: #ffffff;
+}
+
+.delete-task {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#borrarTodasBtn {
+    background-color: #BC6C25;
+    border-radius: 3px;
+    border: none;
+    height: 60px;
+    width: 90%;
+    color: #ffffff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contenedor {
+    display: flex;
+    justify-content: center;
+}
