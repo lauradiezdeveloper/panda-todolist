@@ -1,6 +1,6 @@
 # Panda ToDo List 🐼
 
-Panda ToDo List is a simple and intuitive to-do web application that helps you stay organized and manage your tasks effectively. The app is built using pure JavaScript and basic CSS, providing a lightweight and efficient solution for managing your daily tasks.
+Panda ToDo List is a simple and intuitive to-do web application that helps you stay organized and manage your tasks effectively. The app is built using vanilla JavaScript and basic CSS, providing a lightweight and efficient solution for managing your daily tasks.
 
 ## Features 📋
 
