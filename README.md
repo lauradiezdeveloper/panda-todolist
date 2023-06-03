@@ -40,6 +40,6 @@ Contributions are welcome! If you have any ideas, suggestions, or bug fixes, ple
 
 ---
 
-Thank you for checking out Panda ToDo List! We hope this app helps you stay organized and productive. If you have any questions or feedback, please don't hesitate to reach out.
+Thank you for checking out Panda ToDo List! I hope this app helps you stay organized and productive. If you have any questions or feedback, please don't hesitate to reach out.
 
 Happy task management! 🐼📝
