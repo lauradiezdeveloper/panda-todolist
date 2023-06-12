@@ -1,19 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 html {
     background-image: url(./assets/backgtound_image.png);
-    max-height: 15rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 header {
-    height: 2rem;
+    display: flex;
+    align-items: center;
+    height: 5rem;
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(95,151,114,1) 92%, rgba(95,151,114,1) 100%);
-    opacity:0.9;
     border-radius: 7px;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    margin-left: 2rem;
+    text-align: left;
 }
 
 main{
-    display: grid;   
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
+    display: flex;
+    margin: 0 2rem;
+    gap: 10;
+}
+
+.info {
+    margin: 20px 50px;
 }
 
 .features {
@@ -23,37 +40,50 @@ main{
     gap: 2rem;
     border-radius: 20px;
     height: 50rem;
+    width: 20%;
     opacity: 0.8;
     padding-top: 30px;
     gap: 2rem;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.addTask{
+
+.general {
+    display: flex;
+    flex-direction: column;
+}
+
+.addTask {
     background: #ffffff;
     opacity: 1;
-    padding: 30px;
+    padding: 2rem;
+    margin-bottom: 2rem;
 }
 
 .submit-btn {
     background-color: #283618 ;
-    border-radius: 3px;
     height: 30px;
     color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .delete-task {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
+
 #borrarTodasBtn {
     background-color: #BC6C25;
     border-radius: 3px;
     border: none;
     height: 60px;
-    width: 90%;
+    width: 100%;
     color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 form {
@@ -61,7 +91,137 @@ form {
     flex-direction: column;
 }
 
+#clima-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 50%;
+    display: flex;
+    margin-top: 20px;
+    display: flex;
+}
+
+#clima-section img {
+    width: 60%;
+    height:100px;
+    margin-top: 10px;
+    width: 100px;
+}
+
+#clima-section p {
+    width: 60%;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 25px; 
+}
+
 #contenedor {
     display: flex;
     justify-content: center;
+    margin: 20px 50px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+thead th {
+    color: #283618;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
+
+}
+
+tbody td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    border: none;
+}
+
+tbody td button {
+    background-color: #BC6C25;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+tbody td button:hover {
+    background-color: #8C481B;
+}
+
+footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+footer a {
+    margin-right: 1rem;
+}
+
+footer a:last-child {
+    margin-right: 0;
+}
+
+.footer-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+
+/* Versión mobile */
+
+@media screen and (max-width: 768px) {
+    html {
+    background-size: cover;
+    }
+
+    main {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+    }
+
+    header {
+        margin: 0;
+    }
+
+    .features {
+        width: 100%;
+        padding-top: 0;
+        height: 300px;
+        gap: 1px;
+    }
+
+    .addTask {
+        margin-bottom: 0;
+    }
+
+    .info {
+        display: none;
+    }
+
+    .todolist {
+        margin-top: 0;
+    }
+
+    footer {
+        margin-top: auto;
+    }
 }

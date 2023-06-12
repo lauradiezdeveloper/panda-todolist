@@ -79,10 +79,35 @@ function mostrarTareasEnDOM() {
     }
 };
 
-// Evento que se ejecuta cuando el DOM se ha cargado completamente
+// FUNCIONALIDAD CLIMA
+// Obtener el elemento del DOM para mostrar el clima
+const climaSection = document.getElementById("clima-section");
+
+// Función asincrónica para mostrar el clima actual
+async function mostrarClimaActual() {
+    const apiKey = "eafa208347d7481f912104854230806";
+    const location = "Spain";
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no&lang=es`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // Obtener los valores relevantes del clima
+    const tempC = data.current.temp_c;
+    const conditionText = data.current.condition.text;
+    const conditionIcon = data.current.condition.icon;
+
+    // Actualizar el contenido en el DOM 
+    climaSection.innerHTML = `<p>Clima actual: ${tempC}°C, ${conditionText} en ${location}</p> <img src="https:${conditionIcon}" alt="Icono de clima">`;
+}
+
+
+
+// Eventos que se ejecuta cuando el DOM se ha cargado completamente
 document.addEventListener("DOMContentLoaded", () => {
     // Mostrar las tareas en el DOM al cargar la página
     mostrarTareasEnDOM();
+    mostrarClimaActual();
 });
 
 
@@ -91,16 +116,64 @@ document.addEventListener("DOMContentLoaded", () => {
 // Función para borrar una tarea
 function borrarTarea(e) {
     const tareaId = parseInt(e.target.dataset.id);
-    todasTareas = todasTareas.filter((tarea) => tarea.id !== tareaId);
-    localStorage.setItem("todasTareas", JSON.stringify(todasTareas));
-    mostrarTareasEnDOM();
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#283618',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar tarea'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            todasTareas = todasTareas.filter((tarea) => tarea.id !== tareaId);
+            localStorage.setItem("todasTareas", JSON.stringify(todasTareas));
+            mostrarTareasEnDOM();
+            Toastify({
+                text: "La tarea ha sido eliminada",
+                className: "success",
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)"
+                }
+            }).showToast();
+        }
+    });
 }
 
 // Evento para borrar todas las tareas
 const borrarTodasBtn = document.getElementById("borrarTodasBtn");
 borrarTodasBtn.addEventListener("click", () => {
-    todasTareas = [];
-    localStorage.clear();
-    mostrarTareasEnDOM();
+    if (todasTareas.length === 0) {
+        Toastify({
+            text: "No hay tareas para eliminar",
+            className: "info",
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)"
+            }
+        }).showToast();
+    } else {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#283618',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminar todas las tareas'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                todasTareas = [];
+                localStorage.clear();
+                mostrarTareasEnDOM();
+                Toastify({
+                    text: "Todas las tareas han sido eliminadas",
+                    className: "success",
+                    style: {
+                        background: "linear-gradient(to right, #00b09b, #96c93d)"
+                    }
+                }).showToast();
+            }
+        });
+    }
 });
-
